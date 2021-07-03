@@ -1,21 +1,14 @@
-import { USER_LOGOUT, USER_LOGIN, USER_REGISTER } from '../types';
+import { USER_LOGIN_REQUEST, USER_REGISTER_REQUEST } from '../types/userType';
 
-export const userLogin = (users) => {
+export const userLoginRequest = (FormData) => {
   return {
-    type: USER_LOGIN,
-    payload: users,
+    type: USER_LOGIN_REQUEST,
+    payload: FormData,
   };
 };
-
-export const userRegister = (error) => {
+export const userRegisterRequest = (FormData) => {
   return {
-    type: USER_REGISTER,
-    payload: error,
-  };
-};
-
-export const userLogout = () => {
-  return {
-    type: USER_LOGOUT,
+    type: USER_REGISTER_REQUEST,
+    payload: FormData,
   };
 };
