@@ -22,24 +22,38 @@ const Example = (props) => {
 
   return (
     <div>
-      <Navbar className='px-4' color='light' light expand='md'>
-        <NavbarBrand href='/'>Movie-app</NavbarBrand>
-        <NavbarToggler onClick={toggle} />
-        <Collapse isOpen={isOpen} navbar>
-          <Nav className='mr-auto' navbar>
+      <Navbar
+        className='border mb-3 px-4 bg-dark'
+        style={{ width: '100%' }}
+        color='light'
+        light
+        expand='md'
+      >
+        <NavbarBrand className=' fw-bold bg-dark text-light' href='/'>
+          Movie-app
+        </NavbarBrand>
+        <NavbarToggler
+          onClick={toggle}
+          style={{ maxWidth: '300px', border: '2px solid red' }}
+        />
+        <Collapse className='bg-dark' isOpen={isOpen} navbar>
+          <Nav className=' mr-auto' navbar>
             <NavItem>
-              <NavLink>Components</NavLink>
+              <NavLink className='text-light bg-dark'>Components</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href='https://github.com/reactstrap/reactstrap'>
+              <NavLink
+                className='bg-dark text-light'
+                href='https://github.com/reactstrap/reactstrap'
+              >
                 GitHub
               </NavLink>
             </NavItem>
-            <UncontrolledDropdown nav inNavbar>
-              <DropdownToggle nav caret>
+            <UncontrolledDropdown className='bg-dark text-light' nav inNavbar>
+              <DropdownToggle nav caret className='bg-dark text-light'>
                 Auth
               </DropdownToggle>
-              <DropdownMenu right>
+              <DropdownMenu right className='text-light'>
                 <Link href='/auth/login'>
                   <DropdownItem>Login</DropdownItem>
                 </Link>
@@ -51,7 +65,6 @@ const Example = (props) => {
               </DropdownMenu>
             </UncontrolledDropdown>
           </Nav>
-          <NavbarText>Simple Text</NavbarText>
         </Collapse>
       </Navbar>
     </div>

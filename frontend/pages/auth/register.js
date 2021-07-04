@@ -23,12 +23,15 @@ const Register = () => {
     dispatch(userRegisterRequest(formData));
   };
   return (
-    <div className='container border  border-light d-flex flex-column flex-wrap-reverse justify-content-center '>
-      <div className='border text-center'>
+    <div
+      style={{ width: '700px' }}
+      className='container    d-flex flex-column flex-wrap-reverse justify-content-center '
+    >
+      <div className=' text-center'>
         <strong>This is for Register</strong>{' '}
       </div>
       <form
-        className='container border border-3 border-danger text-left'
+        className='container    text-left'
         onSubmit={handleSubmit(onSubmit)}
       >
         <div className='form-group'>

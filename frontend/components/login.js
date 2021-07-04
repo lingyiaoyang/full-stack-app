@@ -1,13 +1,6 @@
-import { Box } from 'reflexbox';
-import getConfig from 'next/config';
 import { useForm } from 'react-hook-form';
-import { useDispatch } from 'react-redux';
-import { userLoginRequest } from '../../flow/actions';
-
-const { publicRuntimeConfig } = getConfig();
 
 const Login = () => {
-  const dispatch = useDispatch();
   const {
     register,
     handleSubmit,
@@ -16,7 +9,6 @@ const Login = () => {
   } = useForm();
 
   const onSubmit = async (formData) => {
-    dispatch(userLoginRequest(formData));
     console.log(formData);
   };
 

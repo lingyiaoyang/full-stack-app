@@ -1,13 +1,6 @@
-import { Box } from 'reflexbox';
-import getConfig from 'next/config';
 import { useForm } from 'react-hook-form';
-import { useDispatch } from 'react-redux';
-import { userLoginRequest } from '../../flow/actions';
 
-const { publicRuntimeConfig } = getConfig();
-
-const Login = () => {
-  const dispatch = useDispatch();
+const Register = () => {
   const {
     register,
     handleSubmit,
@@ -16,26 +9,35 @@ const Login = () => {
   } = useForm();
 
   const onSubmit = async (formData) => {
-    dispatch(userLoginRequest(formData));
     console.log(formData);
   };
-
   return (
     <div
-      style={{ width: '60%' }}
-      className='container d-flex flex-column flex-wrap-reverse justify-content-center '
+      style={{ width: '700px' }}
+      className='container    d-flex flex-column flex-wrap-reverse justify-content-center '
     >
       <div className=' text-center'>
-        <strong>This is for login</strong>{' '}
+        <strong>This is for Register</strong>{' '}
       </div>
-      <form className='container  text-left' onSubmit={handleSubmit(onSubmit)}>
+      <form
+        className='container    text-left'
+        onSubmit={handleSubmit(onSubmit)}
+      >
+        <div className='form-group'>
+          <label>Username</label>
+          <input
+            type='text'
+            className='form-control'
+            placeholder='username'
+            {...register('username', { required: true })}
+          />
+        </div>
         <div className='form-group '>
           <label>Email address</label>
           <input
-            {...register('identifier', { required: true })}
+            {...register('email', { required: true })}
             type='email'
             className='form-control'
-            style={{}}
             placeholder='Enter email'
           />
         </div>
@@ -57,4 +59,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Register;
