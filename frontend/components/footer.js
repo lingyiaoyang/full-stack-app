@@ -1,37 +1,43 @@
 import React from 'react';
 import { useRouter } from 'next/router';
 
-const footer = () => {
-  const router = useRouter();
-  console.log('🚀 -> file: footer.js -> line 6 -> footer -> router', router);
+const Footer = () => {
+  // const router = useRouter();
+  // console.log('🚀 -> file: footer.js -> line 6 -> footer -> router', router);
 
   return (
-    <div style={{ display: 'flex', height: '200px' }}>
-      <div style={{ border: '1px solid red', width: '50%' }}>left</div>
-      <form
+    <div
+      id='Footer'
+      style={{
+        display: 'flex',
+        borderTop: '2px solid black',
+      }}
+    >
+      <div
         className='container'
-        style={{
-          height: '200px',
-          width: '50%',
-          display: 'flex',
-          flexWrap: 'wrap',
-          border: '1px solid red',
-        }}
+        style={{ display: 'flex', alignItems: 'center' }}
       >
-        <input
-          style={{ marginTop: '20px', border: '1px solid red' }}
-          placeholder='text'
-          type='text'
-        />
-
-        <input
-          style={{ marginTop: '20px', border: '1px solid red' }}
-          placeholder='text'
-          type='text'
-        />
-      </form>
+        <ul className='col-4' style={{}}>
+          {/* <h5>first</h5> */}
+          <li>1</li>
+          <li>2</li>
+          <li>3</li>
+        </ul>
+        <ul className='col-4' style={{}}>
+          {/* <h5>second</h5> */}
+          <li>1</li>
+          <li>2</li>
+          <li>3</li>
+        </ul>
+        <ul className='col-4' style={{}}>
+          {/* <h5>third</h5> */}
+          <li>1</li>
+          <li>2</li>
+          <li>3</li>
+        </ul>
+      </div>
     </div>
   );
 };
 
-export default footer;
+export default Footer;

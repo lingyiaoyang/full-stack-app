@@ -1,5 +1,7 @@
 * {
   box-sizing: border-box;
-  background-color: black;
-  color: white;
+  background-color: #5c5454;
+  color: rgb(0, 0, 0);
+  font-style: italic;
+  text-decoration: none;
 }

@@ -24,7 +24,7 @@ const Register = () => {
   };
   return (
     <div
-      style={{ width: '700px' }}
+      style={{ width: '' }}
       className='container    d-flex flex-column flex-wrap-reverse justify-content-center '
     >
       <div className=' text-center'>
@@ -33,6 +33,7 @@ const Register = () => {
       <form
         className='container    text-left'
         onSubmit={handleSubmit(onSubmit)}
+        style={{ maxWidth: '80%' }}
       >
         <div className='form-group'>
           <label>Username</label>
@@ -62,7 +63,7 @@ const Register = () => {
           />
         </div>
 
-        <button type='submit' className='btn btn-primary'>
+        <button type='submit' className='mt-3 btn btn-primary'>
           Submit
         </button>
       </form>

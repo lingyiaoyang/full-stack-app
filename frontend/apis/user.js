@@ -39,3 +39,13 @@ export const fetchData = async () => {
     aritlcles,
   };
 };
+
+export const getAllUsers = async (formData) => {
+  let authHeaders = {
+    Accept: 'application/json',
+    'Content-Type': 'application/json',
+    Authorization: `Bearer ${formData?.jwtToken}`,
+  };
+
+  return authHeaders;
+};

@@ -11,6 +11,7 @@ const initialState = {
   isLoading: false,
   userForm: [],
   error: '',
+  isAuthenticated: false,
 };
 
 export const userLoginReducer = (state = initialState, action) => {
@@ -24,11 +25,13 @@ export const userLoginReducer = (state = initialState, action) => {
       return {
         isloading: false,
         userForm: payload,
+        isAuthenticated: true,
       };
     case USER_LOGIN_FAILED:
       return {
         isloading: false,
         error: payload,
+        isAuthenticated: false,
       };
     default:
       return { ...state };

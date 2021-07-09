@@ -65,7 +65,12 @@ const Example = (props) => {
   });
 
   return (
-    <Carousel activeIndex={activeIndex} next={next} previous={previous}>
+    <Carousel
+      // style={{ border: '5px solid black' }}
+      activeIndex={activeIndex}
+      next={next}
+      previous={previous}
+    >
       <CarouselIndicators
         items={items}
         activeIndex={activeIndex}

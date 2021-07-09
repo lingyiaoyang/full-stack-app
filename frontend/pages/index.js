@@ -1,11 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import getConfig from 'next/config';
+import { getAllUsers } from '../apis/user';
+import { userLogin } from '../apis/user';
+import withAuth from './auth/AuthRoute';
+import { NextSeo } from 'next-seo';
 
 const { publicRuntimeConfig } = getConfig();
 
 const index = ({ articles }) => {
-  console.log('🚀 -> file: index.js -> line 7 -> index -> articles', articles);
-  return <div className='container border border-5'>This is index</div>;
+  alert(`Zoom not responding`);
+  const SEO = {
+    title: 'Zoom',
+  };
+
+  return (
+    <div id='Container' className='bg-dark Index container border border-5'>
+      This is index
+    </div>
+  );
 };
 
 export async function getServerSideProps() {
@@ -19,4 +31,4 @@ export async function getServerSideProps() {
   };
 }
 
-export default index;
+export default withAuth(index);

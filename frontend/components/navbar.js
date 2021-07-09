@@ -1,71 +1,55 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
-import {
-  Collapse,
-  Navbar,
-  NavbarToggler,
-  NavbarBrand,
-  Nav,
-  NavItem,
-  NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-  NavbarText,
-} from 'reactstrap';
+import { scrollToTop, scrollToBottom, scrollToSpecific } from '../utils';
+import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
 
 const Example = (props) => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggle = () => setIsOpen(!isOpen);
-
+  const scrollToFooter = scrollToSpecific('Footer');
+  const scrollToIndex = scrollToSpecific('Container');
+  const scrollToActicle = scrollToSpecific('Article');
   return (
-    <div>
+    <div style={{ height: '100px' }}>
       <Navbar
-        className='border mb-3 px-4 bg-dark'
-        style={{ width: '100%' }}
-        color='light'
-        light
-        expand='md'
+        style={{
+          position: 'fixed',
+
+          width: '100%',
+          borderBottom: '3px solid black',
+          // backgroundColor: '#363030',
+        }}
+        expand='lg'
       >
-        <NavbarBrand className=' fw-bold bg-dark text-light' href='/'>
-          Movie-app
-        </NavbarBrand>
-        <NavbarToggler
-          onClick={toggle}
-          style={{ maxWidth: '300px', border: '2px solid red' }}
-        />
-        <Collapse className='bg-dark' isOpen={isOpen} navbar>
-          <Nav className=' mr-auto' navbar>
-            <NavItem>
-              <NavLink className='text-light bg-dark'>Components</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink
-                className='bg-dark text-light'
-                href='https://github.com/reactstrap/reactstrap'
+        <Navbar.Brand style={{ border: '' }}>
+          <Link href='/'>
+            <h3 style={{ cursor: 'pointer' }}> React-Bootstrap</h3>
+          </Link>
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls='basic-navbar-nav' />
+        <Navbar.Collapse
+        // id='basic-navbar-nav'
+        >
+          <Nav className='me-auto text-center'>
+            <Link href='/auth/login'>
+              <h5
+                style={{ margin: '0 15px 0 15px', cursor: 'pointer' }}
+                className='  border-dark'
               >
-                GitHub
-              </NavLink>
-            </NavItem>
-            <UncontrolledDropdown className='bg-dark text-light' nav inNavbar>
-              <DropdownToggle nav caret className='bg-dark text-light'>
-                Auth
-              </DropdownToggle>
-              <DropdownMenu right className='text-light'>
-                <Link href='/auth/login'>
-                  <DropdownItem>Login</DropdownItem>
-                </Link>
-                <Link href='/auth/register'>
-                  <DropdownItem>Register</DropdownItem>
-                </Link>
-                <DropdownItem divider />
-                <DropdownItem>Logout</DropdownItem>
-              </DropdownMenu>
-            </UncontrolledDropdown>
+                login
+              </h5>
+            </Link>
+            <Link href='/auth/register'>
+              <h5
+                style={{ margin: '0 15px 0 15px', cursor: 'pointer' }}
+                className=' border-dark'
+              >
+                register
+              </h5>
+            </Link>
+            {scrollToActicle}
+            {scrollToFooter}
+            {scrollToIndex}
           </Nav>
-        </Collapse>
+        </Navbar.Collapse>
       </Navbar>
     </div>
   );

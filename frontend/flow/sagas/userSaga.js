@@ -18,14 +18,17 @@ export function* userLoginRequestFlow(action) {
   const response = yield call(userLogin, sendData);
 
   if (response.error) {
+    // localStorage.setItem('jwt',)
+    console.log(response);
     yield put({
       type: USER_LOGIN_FAILED,
       payload: response.message[0].messages[0].message,
     });
   } else {
+    localStorage.setItem('jwt', response.jwt);
     yield put({
       type: USER_LOGIN_SUCCESS,
-      payload: sendData,
+      payload: response,
     });
   }
 }
@@ -42,13 +45,11 @@ export function* userRegisterRequestFlow(formData) {
   const response = yield call(userRegister, sendData);
 
   if (response.error) {
-    console.log(response);
     yield put({
       type: USER_REGISTER_FAILED,
       payload: response.message[0].messages[0].message,
     });
   } else {
-    console.log(formData);
     yield put({
       type: USER_REGISTER_SUCCESS,
       payload: sendData,
